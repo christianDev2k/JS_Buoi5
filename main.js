@@ -65,5 +65,5 @@ btn1.addEventListener('click', function (e) {
 
     let checkInput = CheckInputTuyenSinh();
     checkInput === true ? ProcessTuyenSinh(pointArea, pointObject, sumSpoint, zeroPoint, floorPoint.value) :
-    alert('Nhập sai rồi bấy bì');
+        alert('Nhập sai rồi bấy bì');
 })
