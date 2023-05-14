@@ -6,6 +6,11 @@ const object = document.querySelectorAll('.object');
 const btn1 = document.querySelector('.btn.bai-1')
 const result1 = document.querySelector('.result.bai-1');
 
+// GLOBAL 
+function showAlert() {
+    alert('Nhập sai rồi bấy bì :))')
+}
+
 function CheckInputTuyenSinh() {
     let isTrue = true;
     if (floorPoint.value === '' || isNaN(floorPoint.value)) {
@@ -63,7 +68,7 @@ btn1.addEventListener('click', function (e) {
 
     let checkInput = CheckInputTuyenSinh();
     checkInput === true ? ProcessTuyenSinh(pointArea, pointObject, sumSpoint, zeroPoint, floorPoint.value) :
-        alert('Nhập sai rồi bấy bì :))');
+        showAlert();
 })
 
 // TOPIC 2 
@@ -72,27 +77,27 @@ const eKw = document.querySelector('#e-kw');
 const btn2 = document.querySelector('.btn.bai-2');
 const result2 = document.querySelector('.result.bai-2');
 
-function TinhTienDien(amountKw) {
-    let result = 0;
-    amountKw <= 50 ? result = amountKw * 500 :
-        amountKw <= 100 ? result = (amountKw - 50) * 650 + 25000 :
-            amountKw <= 200 ? result = (amountKw - 100) * 850 + 57500 :
-                amountKw <= 350 ? result = (amountKw - 200) * 1100 + 142500 :
-                    result = (amountKw - 350) * 1300 + 307500;
-    return result;
+function showTienDien(result, name) {
+    let output = parseFloat(result).toLocaleString('vi-VN');
+    result2.innerHTML = `Tiền điện của ${name} là ${output} đồng nhaa!`;
 }
 
-function showTienDien(result, name) {
-
+function TinhTienDien(amountKw) {
+    let result = 0;
+    result = amountKw <= 50 ? amountKw * 500 :
+        amountKw <= 100 ? (amountKw - 50) * 650 + 25000 :
+            amountKw <= 200 ? (amountKw - 100) * 850 + 57500 :
+                amountKw <= 350 ? (amountKw - 200) * 1100 + 142500 :
+                    (amountKw - 350) * 1300 + 307500;
+    showTienDien(result, eName.value);
 }
 
 function CheckInputTienDien() {
-    
+    return eKw.value === '' || isNaN(eKw.value) || eKw.value < 0 || eName.value === '' ? false : true;
 }
 
 btn2.addEventListener('click', function (e) {
     e.preventDefault();
     let amountKw = eKw.value;
-    let output = TinhTienDien(amountKw);
-    showTienDien(output, eName.value);
+    CheckInputTienDien() === true ? TinhTienDien(amountKw) : showAlert();
 })
