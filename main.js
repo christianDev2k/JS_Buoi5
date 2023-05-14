@@ -82,8 +82,9 @@ function showTienDien(result, name) {
     result2.innerHTML = `Tiền điện của ${name} là ${output} đồng nhaa!`;
 }
 
-function TinhTienDien(amountKw) {
+function TinhTienDien() {
     let result = 0;
+    let amountKw = eKw.value;
     result = amountKw <= 50 ? amountKw * 500 :
         amountKw <= 100 ? (amountKw - 50) * 650 + 25000 :
             amountKw <= 200 ? (amountKw - 100) * 850 + 57500 :
@@ -98,6 +99,21 @@ function CheckInputTienDien() {
 
 btn2.addEventListener('click', function (e) {
     e.preventDefault();
-    let amountKw = eKw.value;
-    CheckInputTienDien() === true ? TinhTienDien(amountKw) : showAlert();
+    CheckInputTienDien() === true ? TinhTienDien() : showAlert();
+})
+
+// TOPIC 3 
+const taxName = document.querySelector('#tax-name');
+const taxIncome = document.querySelector('#tax-income')
+const taxPeople = document.querySelector('#tax-people');
+const btn3 = document.querySelector('.btn.bai-3');
+const result3 = document.querySelector('.result.bai-3');
+
+function checkInputTax() {
+    return taxName.value === '' || taxIncome.value === '' || taxIncome.value <= 4000000 || isNaN(taxIncome.value) || taxPeople.value === '' ||  taxPeople.value < 0 || isNaN(taxPeople) ? false : true;
+}
+
+btn3.addEventListener('click', function (e) {
+    e.preventDefault();
+    checkInputTax() === true ? calcTax() : showAlert();
 })
