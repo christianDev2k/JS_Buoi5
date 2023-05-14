@@ -7,16 +7,16 @@ const btn1 = document.querySelector('.btn.bai-1')
 const result1 = document.querySelector('.result.bai-1');
 
 function CheckInputTuyenSinh() {
-    let isfloorPoint = true;
-    let isPoint = true;
-
-    isfloorPoint = floorPoint.value === '' || isNaN(floorPoint.value) ? false : true;
+    let isTrue = true;
+    if (floorPoint.value === '' || isNaN(floorPoint.value)) {
+        isTrue = false;
+    }
     sPoint.forEach(function (item) {
         if (item.value === '' || isNaN(item.value)) {
-            isPoint = false;
+            isTrue = false;
         }
     })
-    return isfloorPoint === true && isPoint === true ? true : false;
+    return isTrue === true ? true : false;
 }
 
 function KQTuyenSinh(string, result) {
@@ -27,7 +27,6 @@ function KQTuyenSinh(string, result) {
 
 function ProcessTuyenSinh(pointArea, pointObject, sumSpoint, zeroPoint, floorPoint) {
     let result = pointArea + pointObject + sumSpoint;
-
     KQTuyenSinh(result < floorPoint || zeroPoint === true ? 'Rớt' : 'Đậu', result);
 }
 
@@ -36,7 +35,6 @@ btn1.addEventListener('click', function (e) {
     e.preventDefault();
     let areaChecked;
     let objectChecked;
-
     area.forEach(function (item) {
         item.checked ? areaChecked = item.value : null;
     })
@@ -65,5 +63,36 @@ btn1.addEventListener('click', function (e) {
 
     let checkInput = CheckInputTuyenSinh();
     checkInput === true ? ProcessTuyenSinh(pointArea, pointObject, sumSpoint, zeroPoint, floorPoint.value) :
-    alert('Nhập sai rồi bấy bì');
+        alert('Nhập sai rồi bấy bì :))');
+})
+
+// TOPIC 2 
+const eName = document.querySelector('#e-name');
+const eKw = document.querySelector('#e-kw');
+const btn2 = document.querySelector('.btn.bai-2');
+const result2 = document.querySelector('.result.bai-2');
+
+function TinhTienDien(amountKw) {
+    let result = 0;
+    amountKw <= 50 ? result = amountKw * 500 :
+        amountKw <= 100 ? result = (amountKw - 50) * 650 + 25000 :
+            amountKw <= 200 ? result = (amountKw - 100) * 850 + 57500 :
+                amountKw <= 350 ? result = (amountKw - 200) * 1100 + 142500 :
+                    result = (amountKw - 350) * 1300 + 307500;
+    return result;
+}
+
+function showTienDien(result, name) {
+
+}
+
+function CheckInputTienDien() {
+    
+}
+
+btn2.addEventListener('click', function (e) {
+    e.preventDefault();
+    let amountKw = eKw.value;
+    let output = TinhTienDien(amountKw);
+    showTienDien(output, eName.value);
 })
