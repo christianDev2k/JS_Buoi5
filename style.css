@@ -1,0 +1,60 @@
+body {
+    font-size: 18px;
+}
+
+.nav-wrapper {
+    padding: 15px 30px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.12);
+}
+
+.tabs-to-dropdown .nav-pills li:not(:last-child) {
+    margin-right: 30px;
+}
+
+.nav-wrapper .nav-link {
+    color: #005361;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #005361;
+    color: #fff;
+}
+
+/* ----------------------- */
+.title i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.title h1 {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.form .form-control {
+    outline: none;
+    box-shadow: none;
+}
+
+.label__radio {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    padding: 8px 25px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.form .btn {
+    font-size: 20px;
+    padding: 8px 62px;
+}
+
+.result {
+    height: 60px;
+}
+
+.object:checked ~ label,
+.area:checked ~ label {
+    background-color: #198754;
+    color: white;
+}
