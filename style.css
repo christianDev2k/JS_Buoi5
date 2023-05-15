@@ -12,6 +12,7 @@ body {
 }
 
 .nav-wrapper .nav-link {
+    padding: 10px 50px;
     color: #005361;
 }
 
@@ -47,6 +48,12 @@ body {
 .form .btn {
     font-size: 20px;
     padding: 8px 62px;
+    background-color: #005361;
+    transition: all .5s;
+}
+
+.form .btn:hover {
+    opacity: 0.9;
 }
 
 .result {
@@ -54,7 +61,26 @@ body {
 }
 
 .object:checked ~ label,
-.area:checked ~ label {
-    background-color: #198754;
+.area:checked ~ label,
+.net:checked ~ label {
+    background-color: #005361;
     color: white;
+    transition: all .5s;
+}
+
+#amountConnect {
+    display: none;
+    animation: fadeIn .5s ease-in-out;
+    transform-origin: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        transform: translateX(-200px);
+        opacity: .5;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }

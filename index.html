@@ -26,14 +26,16 @@
                             aria-selected="true">Bài 1</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
-                            aria-selected="false">Profile</button>
+                        <button class="nav-link" id="pills-bai2-tab" data-bs-toggle="pill" data-bs-target="#pills-bai2"
+                            type="button" role="tab" aria-controls="pills-bai2" aria-selected="false">Bài 2</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
-                            aria-selected="false">Contact</button>
+                        <button class="nav-link" id="pills-bai3-tab" data-bs-toggle="pill" data-bs-target="#pills-bai3"
+                            type="button" role="tab" aria-controls="pills-bai3" aria-selected="false">Bài 3</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-bai4-tab" data-bs-toggle="pill" data-bs-target="#pills-bai4"
+                            type="button" role="tab" aria-controls="pills-bai4" aria-selected="false">Bài 4</button>
                     </li>
                 </ul>
             </div>
@@ -45,13 +47,13 @@
                             <i class="fa-solid fa-school"></i>
                             <h1 class="mb-0">Quản lí tuyển sinh</h1>
                         </div>
-                        <div class="w-50 mx-auto">
+                        <div class="w-75 mx-auto">
                             <form action="" class="form">
-                                <div class="form__input">
+                                <div>
                                     <label for="">Nhập điểm chuẩn của hội động</label>
                                     <input type="text" class="form-control mt-2" id="floor-point">
                                 </div>
-                                <div class="form__input mt-3">
+                                <div class="mt-3">
                                     <label for="">Nhập điểm 3 môn thi của thí sinh</label>
                                     <div class="row mt-2">
                                         <div class="col-4"><input type="text" class="form-control s-point"></div>
@@ -60,15 +62,14 @@
                                     </div>
                                 </div>
                                 <div class="row mt-3">
-                                    <div class="col">
-                                        <div for="">Chọn khu vực ưu tiên</div>
-                                        <div class="form__input">
+                                    <div class="col-6">
+                                        <div>Chọn khu vực ưu tiên</div>
+                                        <div>
                                             <div class="d-flex mt-2">
                                                 <div>
                                                     <input type="radio" id="area-0" name="area" value="area-0"
                                                         class="area d-none" checked>
-                                                    <label class="label__radio border-end-0"
-                                                        for="area-0">Không</label>
+                                                    <label class="label__radio border-end-0" for="area-0">Không</label>
                                                 </div>
                                                 <div>
                                                     <input type="radio" id="area-a" name="area" value="area-a"
@@ -89,9 +90,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col">
-                                        <div for="">Chọn đối tượng ưu tiên</div>
-                                        <div class="form__input">
+                                    <div class="col-6">
+                                        <div>Chọn đối tượng ưu tiên</div>
+                                        <div>
                                             <div class="d-flex mt-2">
                                                 <div>
                                                     <input type="radio" name="object" id="object-0" value="object-0"
@@ -115,12 +116,11 @@
                                                         class="object d-none">
                                                     <label class="label__radio" for="object-3">3</label>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn bai-1 btn-success mt-4 d-block mx-auto">Kết quả</button>
+                                <button class="btn bai-1 mt-4 d-block mx-auto text-white">Kết quả</button>
                             </form>
                             <div class="bg-success-subtle px-3 mt-4 text-success fw-semibold d-flex align-items-center">
                                 <div class="py-3">
@@ -131,14 +131,113 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+                <div class="tab-pane fade" id="pills-bai2" role="tabpanel" aria-labelledby="pills-bai2-tab"
                     tabindex="0">
-                    ...</div>
-                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
+                    <div class="container-md py-3">
+                        <div class="title d-flex align-items-center justify-content-center mb-3">
+                            <i class="fa-solid fa-bolt"></i>
+                            <h1 class="mb-0">Tính tiền điện</h1>
+                        </div>
+                        <div class="w-50 mx-auto">
+                            <form action="" class="form">
+                                <div class="">
+                                    <label for="">Nhập tên của bạn</label>
+                                    <input type="text" class="form-control mt-2" id="e-name">
+                                </div>
+                                <div class=" mt-3">
+                                    <label for="">Nhập số kW điện bạn đã tiêu thụ</label>
+                                    <input type="text" class="form-control mt-2" id="e-kw">
+                                </div>
+                                <button class="btn bai-2 mt-4 d-block mx-auto text-white">Kết quả</button>
+                            </form>
+                            <div class="bg-success-subtle px-3 mt-4 text-success fw-semibold d-flex align-items-center">
+                                <div class="py-3">
+                                    <i class="fa-solid fa-share me-3"></i>
+                                    <span class="result bai-2"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-bai3" role="tabpanel" aria-labelledby="pills-bai3-tab"
                     tabindex="0">
-                    ...</div>
-                <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab"
-                    tabindex="0">...</div>
+                    <div class="container-md py-3">
+                        <div class="title d-flex align-items-center justify-content-center mb-3">
+                            <i class="fa-solid fa-sack-dollar"></i>
+                            <h1 class="mb-0">Tính thuế TNCN</h1>
+                        </div>
+                        <div class="w-50 mx-auto">
+                            <form action="" class="form">
+                                <div class="">
+                                    <label for="">Nhập họ và tên của bạn</label>
+                                    <input type="text" class="form-control mt-2" id="tax-name">
+                                </div>
+                                <div class=" mt-3">
+                                    <label for="">Nhập tổng thu nhập của bạn trong một năm</label>
+                                    <input type="text" class="form-control mt-2" id="tax-income">
+                                </div>
+                                <div class=" mt-3">
+                                    <label for="">Nhập số người phụ thuộc</label>
+                                    <input type="text" class="form-control mt-2" id="tax-people">
+                                </div>
+                                <button class="btn bai-3 mt-4 d-block mx-auto text-white">Kết quả</button>
+                            </form>
+                            <div class="bg-success-subtle px-3 mt-4 text-success fw-semibold d-flex align-items-center">
+                                <div class="py-3">
+                                    <i class="fa-solid fa-share me-3"></i>
+                                    <span class="result bai-3"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-bai4" role="tabpanel" aria-labelledby="pills-bai4-tab"
+                    tabindex="0">
+                    <div class="container-md py-3">
+                        <div class="title d-flex align-items-center justify-content-center mb-3">
+                            <i class="fa-solid fa-network-wired"></i>
+                            <h1 class="mb-0">Tính tiền cáp</h1>
+                        </div>
+                        <div class="w-50 mx-auto">
+                            <form action="" class="form">
+                                <div>Chọn loại khách hàng</div>
+                                <div>
+                                    <div class="d-flex mt-2">
+                                        <div>
+                                            <input type="radio" id="net__local" name="net-object" value="net__local"
+                                                class="d-none net" checked>
+                                            <label class="label__radio border-end-0" for="net__local">Nhà dân</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="net__company" name="net-object" value="net__company"
+                                                class="d-none net">
+                                            <label class="label__radio" for="net__company">Doanh nghiệp</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" mt-3">
+                                    <label for="">Nhập mã khách hàng</label>
+                                    <input type="text" class="form-control mt-2" id="net-code">
+                                </div>
+                                <div class=" mt-3">
+                                    <label for="">Nhập số kênh cao cấp</label>
+                                    <input type="text" class="form-control mt-2" id="net-channel">
+                                </div>
+                                <div id="amountConnect" class="mt-3">
+                                    <label for="">Nhập số kết nối</label>
+                                    <input type="text" class="form-control mt-2" id="net-connect">
+                                </div>
+                                <button class="btn bai-4 mt-4 d-block mx-auto text-white">Kết quả</button>
+                            </form>
+                            <div class="bg-success-subtle px-3 mt-4 text-success fw-semibold d-flex align-items-center">
+                                <div class="py-3">
+                                    <i class="fa-solid fa-share me-3"></i>
+                                    <span class="result bai-4"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
