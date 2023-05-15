@@ -31,7 +31,6 @@ function priorityPoint(element) {
     element.forEach(function (item) {
         item.checked ? point = item.value : null;
     })
-    console.log(point);
     return point;
 }
 
@@ -70,7 +69,6 @@ function KQTuyenSinh(string, result) {
 // Lắng nghe sự kiện lấy kết quả
 btn1.addEventListener('click', function (e) {
     e.preventDefault();
-
     // Tính điểm khu vực / đối tượng
     let pointArea = calcAreaPoint();
     let pointObject = calcObjectPoint();
@@ -94,9 +92,8 @@ const eKw = document.querySelector('#e-kw');
 const btn2 = document.querySelector('.btn.bai-2');
 const result2 = document.querySelector('.result.bai-2');
 
-function showTienDien(result, name) {
-    let output = parseFloat(result).toLocaleString('vi-VN');
-    result2.innerHTML = `Tiền điện của ${name} là ${output} đồng nhaa!`;
+function CheckInputTienDien() {
+    return eKw.value === '' || isNaN(eKw.value) || eKw.value < 0 || eName.value === '' ? false : true;
 }
 
 function TinhTienDien() {
@@ -110,8 +107,9 @@ function TinhTienDien() {
     showTienDien(result, eName.value);
 }
 
-function CheckInputTienDien() {
-    return eKw.value === '' || isNaN(eKw.value) || eKw.value < 0 || eName.value === '' ? false : true;
+function showTienDien(result, name) {
+    let output = parseFloat(result).toLocaleString('vi-VN');
+    result2.innerHTML = `Tiền điện của ${name} là ${output} đồng nhaa!`;
 }
 
 btn2.addEventListener('click', function (e) {
