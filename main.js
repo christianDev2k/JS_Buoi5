@@ -11,6 +11,7 @@ const object = document.querySelectorAll('.object');
 const btn1 = document.querySelector('.btn.bai-1')
 const result1 = document.querySelector('.result.bai-1');
 
+// Hàm check giá trị nhập vào
 function CheckInputTuyenSinh() {
     let isTrue = true;
     if (floorPoint.value === '' || isNaN(floorPoint.value) || floorPoint.value <= 0) {
@@ -24,28 +25,57 @@ function CheckInputTuyenSinh() {
     return isTrue === true ? true : false;
 }
 
-function KQTuyenSinh(string, result) {
-    string === 'Rớt' ? result1.innerText = `Bạn đã rớt. Tổng điểm của bạn là ${result} điểm. Chúc bạn may mắn lần sau!` :
-        result1.innerText = `Bạn đã đậu. Tổng điểm của bạn là ${result} điểm. Amazing good job bạn!`;
+// Hàm get input điểm ưu tiên khu vực / đối tượng
+function priorityPoint(element) {
+    let point = 0;
+    element.forEach(function (item) {
+        item.checked ? point = item.value : null;
+    })
+    console.log(point);
+    return point;
 }
 
+// Hàm tính điểm khu vực
+function calcAreaPoint() {
+    let areaChecked = priorityPoint(area);
+    areaChecked === 'area-b' ? pointArea = 1 :
+        areaChecked === 'area-a' ? pointArea = 2 :
+            areaChecked === 'area-c' ? pointArea = 0.5 :
+                pointArea = 0;
+    return pointArea;
+}
 
+// Hàm tính điểm đối tượng
+function calcObjectPoint() {
+    let objectChecked = priorityPoint(object);
+    objectChecked === 'object-1' ? pointObject = 2.5 :
+        objectChecked === 'object-2' ? pointObject = 1.5 :
+            objectChecked === 'object-3' ? pointObject = 1 :
+                pointObject = 0;
+    return pointObject;
+}
+
+// Hàm xử lí kết quả
 function ProcessTuyenSinh(pointArea, pointObject, sumSpoint, zeroPoint, floorPoint) {
     let result = pointArea + pointObject + sumSpoint;
     KQTuyenSinh(result < floorPoint || zeroPoint === true ? 'Rớt' : 'Đậu', result);
 }
 
+// Hàm show ra kết quả
+function KQTuyenSinh(string, result) {
+    string === 'Rớt' ? result1.innerText = `Bạn đã rớt. Tổng điểm của bạn là ${result} điểm. Chúc bạn may mắn lần sau!` :
+        result1.innerText = `Bạn đã đậu. Tổng điểm của bạn là ${result} điểm. Amazing good job bạn!`;
+}
+
+// Lắng nghe sự kiện lấy kết quả
 btn1.addEventListener('click', function (e) {
     e.preventDefault();
-    let areaChecked;
-    let objectChecked;
-    area.forEach(function (item) {
-        item.checked ? areaChecked = item.value : null;
-    })
-    object.forEach(function (item) {
-        item.checked ? objectChecked = item.value : null;
-    })
 
+    // Tính điểm khu vực / đối tượng
+    let pointArea = calcAreaPoint();
+    let pointObject = calcObjectPoint();
+
+    // Tính điểm tổng và kiểm tra xem có điểm = 0 hay không
     let sumSpoint = 0;
     let zeroPoint = false;
     sPoint.forEach(function (item) {
@@ -53,20 +83,8 @@ btn1.addEventListener('click', function (e) {
         item.value == 0 ? zeroPoint = true : null;
     })
 
-    let pointArea;
-    let pointObject;
-    areaChecked === 'area-b' ? pointArea = 1 :
-        areaChecked === 'area-a' ? pointArea = 2 :
-            areaChecked === 'area-c' ? pointArea = 0.5 :
-                pointArea = 0;
-
-    objectChecked === 'object-1' ? pointObject = 2.5 :
-        objectChecked === 'object-2' ? pointObject = 1.5 :
-            objectChecked === 'object-3' ? pointObject = 1 :
-                pointObject = 0;
-
-    let checkInput = CheckInputTuyenSinh();
-    checkInput === true ? ProcessTuyenSinh(pointArea, pointObject, sumSpoint, zeroPoint, floorPoint.value) :
+    // Nếu thông tin nhập đúng thì xử lí và đưa ra kết quả. Ngược lại show thông báo nhập sai rồi bấy bì
+    CheckInputTuyenSinh() ? ProcessTuyenSinh(pointArea, pointObject, sumSpoint, zeroPoint, floorPoint.value) :
         showAlert();
 })
 
