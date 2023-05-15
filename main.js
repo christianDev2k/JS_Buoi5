@@ -13,11 +13,11 @@ const result1 = document.querySelector('.result.bai-1');
 
 function CheckInputTuyenSinh() {
     let isTrue = true;
-    if (floorPoint.value === '' || isNaN(floorPoint.value)) {
+    if (floorPoint.value === '' || isNaN(floorPoint.value) || floorPoint.value <= 0) {
         isTrue = false;
     }
     sPoint.forEach(function (item) {
-        if (item.value === '' || isNaN(item.value)) {
+        if (item.value === '' || isNaN(item.value) || item.value < 0) {
             isTrue = false;
         }
     })
